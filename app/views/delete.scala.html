@@ -1,0 +1,15 @@
+@(title: String, message: String, messageForm: Form[Message])
+@main("Sample Page") {
+<h1>@Html(title)</h1>
+  		<a class="btn btn-default" href="/" role="button">一覧に戻る</a>
+  		<a class="btn btn-default" href="/add" role="button">新規</a>
+		<a class="btn btn-default" href="/item" role="button">投稿編集</a>
+		<a class="btn btn-default" href="/find" role="button">投稿者検索</a>
+	<hr>
+  <p>@Html(message)</p>
+  @helper.form(action = routes.Application.doDelete()) {
+  	@helper.inputText(messageForm("id"),'_label -> "id")
+  	<input type='hidden' name='name' value='dummy' />
+  	<input type='submit' value='送信'>
+  }
+}

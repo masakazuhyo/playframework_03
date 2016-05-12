@@ -1,0 +1,11 @@
+@(title: String, msg: String, datas: List[Message])
+@main("Sample Page") {
+<h1>@Html(title)</h1>
+		<a class="btn btn-default" href="/add" role="button">新規</a>
+		<a class="btn btn-default" href="/item" role="button">投稿編集</a>
+		<a class="btn btn-default" href="/find" role="button">投稿者検索</a>
+		<a class="btn btn-default" href="/delete" role="button">削除</a>
+	<hr>
+  <p>@msg</p>
+  <pre>@datas</pre>
+ }

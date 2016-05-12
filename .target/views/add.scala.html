@@ -1,0 +1,16 @@
+@(title: String, message: String, messageForm: Form[Message])
+@main("新規メッセージ作成画面") {
+<h1>@Html(title)</h1>
+  		<a class="btn btn-default" href="/" role="button">一覧に戻る</a>
+		<a class="btn btn-default" href="/item" role="button">投稿編集</a>
+		<a class="btn btn-default" href="/delete" role="button">削除</a>
+		<a class="btn btn-default" href="/find" role="button">投稿者検索</a>
+	<hr>
+  <p>@Html(message)</p>
+  @helper.form(action = routes.Application.doAdd()) {
+  	@helper.inputText(messageForm("name"),'_label -> "name",'_msg -> "required")(inputTextAddMessageTemplate, implicitly[Lang])
+  	@helper.inputText(messageForm("mail"),'_label -> "mail",'_msg -> "Email")(inputTextAddMessageTemplate, implicitly[Lang])
+  	@helper.textarea(messageForm("message"), args = 'rows -> 3, 'cols -> 50, '_label -> "message")
+  	<input type='submit' value='送信'>
+  }
+}
